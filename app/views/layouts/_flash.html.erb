@@ -1,0 +1,10 @@
+<% if flash[:notice] %>
+  <% flash.each do |type, message| %>
+    <%= content_tag(:div, message, class: "flash #{type}") %>
+  <% end %>
+<% end %>
+<% if flash[:alert] %>
+  <% flash.each do |type, message| %>
+    <%= content_tag(:div, message, class: "flash #{type}") %>
+  <% end %>
+<% end %>

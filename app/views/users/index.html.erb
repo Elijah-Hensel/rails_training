@@ -1,0 +1,10 @@
+<h1>
+  Flix Users
+</h1>
+<ul>
+  <% @users.each do |u| %>
+    <li>
+      <%= link_to u.name, u %> joined Flix <%= time_ago_in_words(u.created_at) %> ago
+    </li>
+  <% end %>
+</ul>
