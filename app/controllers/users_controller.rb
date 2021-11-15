@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
   before_action :require_signin, except: %i[new create]
-  before_action :require_correct_user, only: %i[edit update destroy]
-
+  before_action :require_correct_user, only: %i[edit update]
+  before_action :require_admin, only: [:destroy]
   def index
     @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
+    @reviews = @user.reviews
+    @favorite_movies = @user.favorite_movies
   end
 
   def new

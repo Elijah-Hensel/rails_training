@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def current_user?(user)
+    current_user == user
+  end
+
+  helper_method :current_user?
+
   def require_signin
     session[:intended_url] = request.url
     unless current_user
@@ -14,9 +20,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_user?(user)
-    current_user == user
+  def require_admin
+    unless current_user_admin?
+      redirect_to root_url, alert: 'Unauthorised user! No access!'
+    end
   end
 
-  helper_method :current_user?
+  def current_user_admin?
+    current_user && current_user.admin
+  end
+
+  helper_method :current_user_admin?
 end

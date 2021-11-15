@@ -182,3 +182,18 @@ movie = Movie.find(4)
 movie.reviews.create!(name: 'Larry', stars: 5, comment: 'Awesome!')
 movie.reviews.create!(name: 'Daisy', stars: 4, comment: 'Great!')
 movie.reviews.create!(name: 'Moe', stars: 3, comment: 'Spilled my popcorn!')
+
+Genre.create!(
+  [
+    { name: 'Action' },
+    { name: 'Comedy' },
+    { name: 'Drama' },
+    { name: 'Romance' },
+    { name: 'Thriller' },
+    { name: 'Fantasy' },
+    { name: 'Documentary' },
+    { name: 'Adventure' },
+    { name: 'Animation' },
+    { name: 'Sci-Fi' },
+  ],
+)
